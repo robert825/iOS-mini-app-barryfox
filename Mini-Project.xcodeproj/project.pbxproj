@@ -14,7 +14,8 @@
 		721A876A1AE4B75C003DBFC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721A87681AE4B75C003DBFC4 /* LaunchScreen.xib */; };
 		721A87761AE4B75C003DBFC4 /* MiniProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721A87751AE4B75C003DBFC4 /* MiniProjectTests.swift */; };
 		86DEE3E72030BCAE00C996B8 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEE3E62030BCAE00C996B8 /* AddItemViewController.swift */; };
-		86DEE3E92030C8DA00C996B8 /* BucketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEE3E82030C8DA00C996B8 /* BucketListTableViewCell.swift */; };
+		C37F0B482030D72100CFD755 /* BucketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37F0B472030D72100CFD755 /* BucketListTableViewCell.swift */; };
+		C37F0B4C2030DF6300CFD755 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37F0B4B2030DF6300CFD755 /* HomeTableViewController.swift */; };
 		F96EB9291B0554D90063321A /* BucketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EB9281B0554D90063321A /* BucketItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,8 @@
 		721A87741AE4B75C003DBFC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		721A87751AE4B75C003DBFC4 /* MiniProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniProjectTests.swift; sourceTree = "<group>"; };
 		86DEE3E62030BCAE00C996B8 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
-		86DEE3E82030C8DA00C996B8 /* BucketListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketListTableViewCell.swift; path = "../../../Downloads/NoteTaker-iOS-master/Note Taker/BucketListTableViewCell.swift"; sourceTree = "<group>"; };
+		C37F0B472030D72100CFD755 /* BucketListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTableViewCell.swift; sourceTree = "<group>"; };
+		C37F0B4B2030DF6300CFD755 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		F96EB9281B0554D90063321A /* BucketItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,9 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				02E65AFD1E4E168C004FB594 /* BucketListTableViewController.swift */,
-				86DEE3E82030C8DA00C996B8 /* BucketListTableViewCell.swift */,
+				C37F0B472030D72100CFD755 /* BucketListTableViewCell.swift */,
 				721A875F1AE4B75B003DBFC4 /* AppDelegate.swift */,
 				721A87631AE4B75C003DBFC4 /* Main.storyboard */,
+				C37F0B4B2030DF6300CFD755 /* HomeTableViewController.swift */,
 				F96EB9281B0554D90063321A /* BucketItem.swift */,
 				721A87661AE4B75C003DBFC4 /* Images.xcassets */,
 				721A87681AE4B75C003DBFC4 /* LaunchScreen.xib */,
@@ -224,10 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37F0B4C2030DF6300CFD755 /* HomeTableViewController.swift in Sources */,
 				F96EB9291B0554D90063321A /* BucketItem.swift in Sources */,
 				721A87601AE4B75B003DBFC4 /* AppDelegate.swift in Sources */,
 				86DEE3E72030BCAE00C996B8 /* AddItemViewController.swift in Sources */,
-				86DEE3E92030C8DA00C996B8 /* BucketListTableViewCell.swift in Sources */,
+				C37F0B482030D72100CFD755 /* BucketListTableViewCell.swift in Sources */,
 				02E65AFE1E4E168C004FB594 /* BucketListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

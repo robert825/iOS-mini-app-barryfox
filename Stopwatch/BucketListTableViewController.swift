@@ -24,14 +24,14 @@ class BucketListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "BucketListTableViewCell"
+        let cellIdentifier = "BucketTableViewCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BucketListTableViewCell
         
         // Fetches the appropriate note for the data source layout.
         let item = BucketList[indexPath.row]
         
-        cell.nameLabel.text = item.name
+//        cell.nameLabel.text = item.name
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -72,7 +72,6 @@ class BucketListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadSampleItems()
         self.navigationItem.title = "UVA Bucket List"
     }
