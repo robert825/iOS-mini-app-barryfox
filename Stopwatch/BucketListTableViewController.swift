@@ -12,6 +12,8 @@ class BucketListViewController: UITableViewController {
     
     var BucketList = [BucketItem]()
     
+    
+    
     func loadSampleItems() {
         let item1 = BucketItem(name: "Register for Graduation", latitude: 0.0, longitude: 0.0, description: "Complete graduation forms", dueDate: Date())
         BucketList += [item1]
@@ -20,6 +22,8 @@ class BucketListViewController: UITableViewController {
         let item3 = BucketItem(name: "Sample item", latitude: 0.0, longitude: 0.0, description: "Sample bucket list item", dueDate: Date())
         BucketList += [item3]
     }
+    
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -50,23 +54,7 @@ class BucketListViewController: UITableViewController {
         return BucketList.count
     }
     
-    // This function gets data ready to be sent over to another scene.  Notice how we get the navigation controller first, then get the view controller embedded inside it.
-    // Setup the time to be sent over to the next view controller here.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        // NOTE: You'll need to click on the seque you create and give it the name "AddTime" for this to work!
-        if (segue.identifier == "AddTime") {
-            let destinationVC = segue.destination as! UINavigationController
-            // let targetController = destinationVC.topViewController as! AddTimeViewController
-            
-            // ADD CODE: Get the data ready to send over to the next controller by setting the fields over in the AddTimeViewController
-            
 
-            
-        }
-
-    }
     
 
     

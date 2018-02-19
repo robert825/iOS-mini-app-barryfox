@@ -9,7 +9,11 @@
 import UIKit
 
 class HomeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    var name  = ""
+    var lat = 9999.9
+    var lon  = 9999.9
+    var desc = ""
+    var date  = Date()
     
     @IBOutlet weak var bucketTableView: UITableView!
     var buckets = [BucketItem]()
@@ -23,8 +27,15 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSampleBucketList()
+        if(name != "" && lat != 9999.9 && lon != 9999.9 && desc != "" ) {
+            let bucket1 = BucketItem(name: name, latitude: lat,  longitude: lon, description: desc, dueDate : date)
+            buckets += [bucket1]
+            
+        }
         bucketTableView.dataSource = self
         bucketTableView.delegate = self
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -104,6 +115,8 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    
+
     
     
   

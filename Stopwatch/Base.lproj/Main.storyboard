@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="1450.4000000000001" y="122.78860569715144"/>
         </scene>
-        <!--Add Item View Controller-->
+        <!--Add Item Controller-->
         <scene sceneID="nCJ-9h-i9w">
             <objects>
-                <viewController id="GA8-nY-zTo" customClass="AddItemViewController" sceneMemberID="viewController">
+                <viewController id="GA8-nY-zTo" customClass="AddItemController" customModule="Mini_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sGS-O6-piX"/>
                         <viewControllerLayoutGuide type="bottom" id="B58-p7-ASD"/>
@@ -102,13 +102,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QNb-B7-q10">
-                                <rect key="frame" x="76" y="93" width="283" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBr-Do-TJf">
                                 <rect key="frame" x="16" y="98" width="52" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,12 +130,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Fw-f5-8Cz">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Fw-f5-8Cz" userLabel="LatField">
                                 <rect key="frame" x="87" y="133" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="name:" destination="aqt-yh-6fT" eventType="editingDidEnd" id="7Jb-uQ-dbV"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-NS-y8U">
                                 <rect key="frame" x="101" y="171" width="97" height="30"/>
@@ -175,15 +171,34 @@
                                     <!--2018-02-11 11:00:00 +0000-->
                                 </date>
                             </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ota-ko-1Oq">
+                                <rect key="frame" x="87" y="89" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="zpb-Mp-gU4">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7Nl-Ie-usr"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="RPE-Gl-5Y7"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="RPE-Gl-5Y7">
+                            <connections>
+                                <segue destination="dRp-cd-dPs" kind="presentation" identifier="saveItem" id="PmW-gE-h8c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="date" destination="kcc-qf-KtW" id="7ft-eE-QyC"/>
+                        <outlet property="desc" destination="N4c-r4-gJb" id="6tW-SF-w3z"/>
+                        <outlet property="lat" destination="4Fw-f5-8Cz" id="3nd-Tk-Bdt"/>
+                        <outlet property="lon" destination="IdV-NS-y8U" id="kJ5-lx-8eF"/>
+                        <outlet property="name" destination="ota-ko-1Oq" id="vr8-Ye-Jcp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DsU-lV-kot" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aqt-yh-6fT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1364" y="796.55172413793105"/>
         </scene>
