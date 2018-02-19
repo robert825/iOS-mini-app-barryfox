@@ -19,8 +19,14 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     var buckets = [BucketItem]()
     
     func loadSampleBucketList(){
-        let bucket1 = BucketItem(name: "Register for Graduation", latitude: 1.0,  longitude: 1.0, description: "Description 1", dueDate : Date(timeIntervalSinceReferenceDate: -123456789.0))
+        let bucket1 = BucketItem(name: "Register for Graduation", latitude: 1.0,  longitude: 1.0, description: "Description 1", dueDate : Date(timeIntervalSinceReferenceDate: 123456789.0))
         buckets += [bucket1]
+        
+        let bucket2 = BucketItem(name: "Finish CS4720", latitude: 1.0,  longitude: 1.0, description: "Description 2", dueDate : Date(timeIntervalSinceReferenceDate: 123456789.0))
+        buckets += [bucket2]
+        
+        let bucket3 = BucketItem(name: "Sample item", latitude: 1.0,  longitude: 1.0, description: "Description 3", dueDate : Date(timeIntervalSinceReferenceDate: 123456789.0))
+        buckets += [bucket3]
     }
     
     
