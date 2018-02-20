@@ -48,6 +48,9 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         } else {
             loadSampleBucketList()
         }
+        HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: {
+            $0.dueDate.compare($1.dueDate) == .orderedAscending
+        })
         bucketTableView.dataSource = self
         bucketTableView.delegate = self
         
