@@ -37,20 +37,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: { (s1, s2) -> Bool in
-            print("reloaded")
-            if s1.finished && !s2.finished {
-                return false
-            }
-            if !s1.finished && s2.finished {
-                return true
-            }
-            if s1.finished == s2.finished {
-                return s1.dueDate < s2.dueDate
-            }
-            return false
-            
-        })
+
         
         if(name != "" || lat != 9999.9 || lon != 9999.9 || desc != "" ) {
     
@@ -65,6 +52,20 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         } else {
             loadSampleBucketList()
         }
+        HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: { (s1, s2) -> Bool in
+            print("reloaded")
+            if s1.finished && !s2.finished {
+                return false
+            }
+            if !s1.finished && s2.finished {
+                return true
+            }
+            if s1.finished == s2.finished {
+                return s1.dueDate < s2.dueDate
+            }
+            return false
+            
+        })
         
         bucketTableView.dataSource = self
         bucketTableView.delegate = self
@@ -179,10 +180,38 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
             if(HomeTableViewController.buckets[self.currentIndex].finished){
                 HomeTableViewController.buckets[self.currentIndex].finished = false
                 completed.backgroundColor = .white
+                HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: { (s1, s2) -> Bool in
+                    print("reloaded")
+                    if s1.finished && !s2.finished {
+                        return false
+                    }
+                    if !s1.finished && s2.finished {
+                        return true
+                    }
+                    if s1.finished == s2.finished {
+                        return s1.dueDate < s2.dueDate
+                    }
+                    return false
+                    
+                })
             }
             else {
                 HomeTableViewController.buckets[self.currentIndex].finished = true
                 completed.backgroundColor = .gray
+                HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: { (s1, s2) -> Bool in
+                    print("reloaded")
+                    if s1.finished && !s2.finished {
+                        return false
+                    }
+                    if !s1.finished && s2.finished {
+                        return true
+                    }
+                    if s1.finished == s2.finished {
+                        return s1.dueDate < s2.dueDate
+                    }
+                    return false
+                    
+                })
             }
             
             tableView.reloadData()
