@@ -173,7 +173,7 @@
                                 </date>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ota-ko-1Oq">
-                                <rect key="frame" x="87" y="89" width="97" height="30"/>
+                                <rect key="frame" x="87" y="89" width="221" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -183,7 +183,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="zpb-Mp-gU4">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7Nl-Ie-usr"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7Nl-Ie-usr">
+                            <connections>
+                                <segue destination="dRp-cd-dPs" kind="presentation" id="5IZ-ml-Tum"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="RPE-Gl-5Y7">
                             <connections>
                                 <segue destination="dRp-cd-dPs" kind="presentation" identifier="saveItem" id="PmW-gE-h8c"/>
@@ -304,7 +308,7 @@
                                 </date>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0y6-KE-HKj">
-                                <rect key="frame" x="87" y="89" width="97" height="30"/>
+                                <rect key="frame" x="87" y="89" width="223" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -314,7 +318,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kwh-4D-mvB">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PG7-cB-Brs"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PG7-cB-Brs">
+                            <connections>
+                                <segue destination="dRp-cd-dPs" kind="presentation" id="hpN-7c-7GI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="FHy-EW-tG0">
                             <connections>
                                 <segue destination="dRp-cd-dPs" kind="presentation" identifier="updateItem" id="Gll-h7-SDC"/>
@@ -333,7 +341,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tJ-KF-dVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4RG-LO-NPf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3273" y="123"/>
+            <point key="canvasLocation" x="3272.8000000000002" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="88l-E6-W6E">
@@ -354,6 +362,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nfe-If-k7U"/>
-        <segue reference="Gll-h7-SDC"/>
+        <segue reference="5IZ-ml-Tum"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -50,7 +50,9 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
             }
             
         } else {
-            loadSampleBucketList()
+            if(HomeTableViewController.buckets.count <= 2){
+                loadSampleBucketList()
+            }
         }
         HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: { (s1, s2) -> Bool in
             print("reloaded")
@@ -140,7 +142,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         let bucket = HomeTableViewController.buckets[indexPath.row]
         
         if(bucket.finished) {
-            cell.backgroundColor = .gray
+            cell.backgroundColor = .lightGray
     
         } else {
             cell.backgroundColor = .white
@@ -197,7 +199,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
             }
             else {
                 HomeTableViewController.buckets[self.currentIndex].finished = true
-                completed.backgroundColor = .gray
+                completed.backgroundColor = .lightGray
                 HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: { (s1, s2) -> Bool in
                     print("reloaded")
                     if s1.finished && !s2.finished {
