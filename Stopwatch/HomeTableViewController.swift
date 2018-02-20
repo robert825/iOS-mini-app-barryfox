@@ -18,7 +18,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     var newItem = true
     var finished = false
     
-    var titleString = ""
+    
     
     @IBOutlet weak var bucketTableView: UITableView!
     static var buckets = [BucketItem]()
@@ -96,8 +96,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         // Fetches the appropriate note for the data source layout.
         let bucket = HomeTableViewController.buckets[indexPath.row]
-        
-        cell.nameLabel.text = bucket.name
+
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -127,7 +126,16 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         // Fetches the appropriate note for the data source layout.
         let bucket = HomeTableViewController.buckets[indexPath.row]
         
+        if(bucket.finished) {
+            cell.backgroundColor = .gray
+    
+        } else {
+            cell.backgroundColor = .white
+           
+        }
         cell.nameLabel.text = bucket.name
+        cell.nameLabel.text = bucket.name
+
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -146,29 +154,25 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
             self.performSegue(withIdentifier: "editItem", sender: cell)
         }
         edit.backgroundColor = .orange
-        var b = HomeTableViewController.buckets[self.currentIndex]
-        let completed = tableView.cellForRow(at: editActionsForRowAt)
-        if(b.finished){
-            titleString = "Undo"
-            completed?.backgroundColor = .green
-        }else {
-            titleString = "Done"
-            completed?.backgroundColor = .white
-        }
-        let done = UITableViewRowAction(style: .normal, title: titleString) { action, index in
+//        var b = HomeTableViewController.buckets[self.currentIndex]
+        let completed = tableView.cellForRow(at: editActionsForRowAt) as! BucketListTableViewCell
+
+        let done = UITableViewRowAction(style: .normal, title: completed.done) { action, index in
+            print(HomeTableViewController.buckets[self.currentIndex].finished)
             print("done button tapped")
+            
             //self.currentIndex = editActionsForRowAt[1]
             
             
-            if(self.titleString == "Undo"){
+            if(HomeTableViewController.buckets[self.currentIndex].finished){
                 HomeTableViewController.buckets[self.currentIndex].finished = false
-                //completed?.backgroundColor = .white
+                completed.backgroundColor = .white
             }
             else {
                 HomeTableViewController.buckets[self.currentIndex].finished = true
-                //completed?.backgroundColor = .green
+                completed.backgroundColor = .gray
             }
-            print(HomeTableViewController.buckets[self.currentIndex].finished)
+            
             
         }
         done.backgroundColor = .green
