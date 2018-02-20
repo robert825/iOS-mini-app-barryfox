@@ -32,6 +32,7 @@ class EditItemViewController: UIViewController {
     
     override func viewDidLoad() {
         self.navigationItem.title = "Edit Item"
+        print(self.nameReceived)
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

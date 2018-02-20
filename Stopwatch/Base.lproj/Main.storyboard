@@ -84,6 +84,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bucketTableView" destination="6d7-z7-W9g" id="SqB-QY-osv"/>
+                        <segue destination="1Bj-hI-fyO" kind="presentation" identifier="editItem" id="HxQ-74-Uxa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -223,7 +224,7 @@
         <!--Edit Item Controller-->
         <scene sceneID="5sV-vs-bpQ">
             <objects>
-                <viewController id="Ewt-Kb-QdR" userLabel="Edit Item Controller" customClass="EditItemController" customModule="Mini_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ewt-Kb-QdR" userLabel="Edit Item Controller" customClass="EditItemViewController" customModule="Mini_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yuS-BS-afI"/>
                         <viewControllerLayoutGuide type="bottom" id="jDn-WD-LIy"/>
