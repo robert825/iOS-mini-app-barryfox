@@ -315,9 +315,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="Kwh-4D-mvB">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PG7-cB-Brs"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="FHy-EW-tG0"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="FHy-EW-tG0">
+                            <connections>
+                                <segue destination="dRp-cd-dPs" kind="presentation" identifier="updateItem" id="Gll-h7-SDC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="date" destination="Tpb-Wh-sS2" id="lBA-5p-vm8"/>
+                        <outlet property="desc" destination="q0B-AC-PFN" id="e6E-ie-0Rx"/>
+                        <outlet property="lat" destination="4VC-qE-DJP" id="DId-s3-8by"/>
+                        <outlet property="lon" destination="h21-kX-ElH" id="Fp1-YD-XcT"/>
+                        <outlet property="name" destination="0y6-KE-HKj" id="Z8M-f8-Tnc"/>
                         <segue destination="1Bj-hI-fyO" kind="presentation" id="nfe-If-k7U"/>
                     </connections>
                 </viewController>
@@ -345,5 +354,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nfe-If-k7U"/>
+        <segue reference="Gll-h7-SDC"/>
     </inferredMetricsTieBreakers>
 </document>

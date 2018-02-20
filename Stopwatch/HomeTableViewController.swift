@@ -14,30 +14,39 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     var lon  = 9999.9
     var desc = ""
     var date  = Date()
-    var currentIndex = -1;
+    var currentIndex = -1
+    var newItem = true
     
     @IBOutlet weak var bucketTableView: UITableView!
-    var buckets = [BucketItem]()
+    static var buckets = [BucketItem]()
     
     func loadSampleBucketList(){
         let bucket1 = BucketItem(name: "Register for Graduation", latitude: 1.0,  longitude: 1.0, description: "Description 1", dueDate : Date(timeIntervalSinceReferenceDate: 123456789.0))
-        buckets += [bucket1]
+        HomeTableViewController.buckets += [bucket1]
         
         let bucket2 = BucketItem(name: "Finish CS4720", latitude: 1.0,  longitude: 1.0, description: "Description 2", dueDate : Date(timeIntervalSinceReferenceDate: 123456789.0))
-        buckets += [bucket2]
+        HomeTableViewController.buckets += [bucket2]
         
         let bucket3 = BucketItem(name: "Sample item", latitude: 1.0,  longitude: 1.0, description: "Description 3", dueDate : Date(timeIntervalSinceReferenceDate: 123456789.0))
-        buckets += [bucket3]
+        HomeTableViewController.buckets += [bucket3]
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleBucketList()
+        
         if(name != "" && lat != 9999.9 && lon != 9999.9 && desc != "" ) {
+    
             let bucket1 = BucketItem(name: name, latitude: lat,  longitude: lon, description: desc, dueDate : date)
-            buckets += [bucket1]
+            if(newItem){
+                
+                HomeTableViewController.buckets += [bucket1]
+            } else {
+                HomeTableViewController.buckets[self.currentIndex] = bucket1
+            }
             
+        } else {
+            loadSampleBucketList()
         }
         bucketTableView.dataSource = self
         bucketTableView.delegate = self
@@ -69,7 +78,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int
     {
-        return buckets.count
+        return HomeTableViewController.buckets.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell
@@ -80,7 +89,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BucketListTableViewCell
         
         // Fetches the appropriate note for the data source layout.
-        let bucket = buckets[indexPath.row]
+        let bucket = HomeTableViewController.buckets[indexPath.row]
         
         cell.nameLabel.text = bucket.name
         
@@ -110,7 +119,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BucketListTableViewCell
         
         // Fetches the appropriate note for the data source layout.
-        let bucket = buckets[indexPath.row]
+        let bucket = HomeTableViewController.buckets[indexPath.row]
         
         cell.nameLabel.text = bucket.name
         
@@ -157,12 +166,13 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         if (segue.identifier == "editItem") {
             let destinationVC = segue.destination as! UINavigationController
             let targetController = destinationVC.topViewController as! EditItemViewController
-            let item = buckets[currentIndex]
+            let item = HomeTableViewController.buckets[currentIndex]
             targetController.nameReceived = item.name
             targetController.latReceived = item.latitude
             targetController.lonReceived = item.longitude
             targetController.descReceived = item.description
             targetController.dateReceived = item.dueDate
+            targetController.index = currentIndex
         }
     
     }

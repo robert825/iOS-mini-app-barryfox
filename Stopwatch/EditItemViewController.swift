@@ -16,6 +16,7 @@ class EditItemViewController: UIViewController {
     var lonReceived = 9999.9
     var descReceived = ""
     var dateReceived = Date()
+    var index = -1
     
     @IBOutlet weak var name: UITextField!
     
@@ -32,7 +33,11 @@ class EditItemViewController: UIViewController {
     
     override func viewDidLoad() {
         self.navigationItem.title = "Edit Item"
-        print(self.nameReceived)
+        self.name.text = nameReceived
+        self.lat.text = String(latReceived)
+        self.lon.text = String(lonReceived)
+        self.desc.text = descReceived
+        self.date.date = dateReceived
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -51,7 +56,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         // NOTE: You'll need to click on the seque you create and give it the name "AddTime" for this to work!
-        if (segue.identifier == "saveItem") {
+        if (segue.identifier == "updateItem") {
             let destinationVC = segue.destination as! UINavigationController
             let targetController = destinationVC.topViewController as! HomeTableViewController
             targetController.name = name.text!
@@ -59,6 +64,8 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             targetController.lon = Double(lon.text!)!
             targetController.desc = desc.text!
             targetController.date = date.date
+            targetController.newItem = false
+            targetController.currentIndex = index
             // ADD CODE: Get the data ready to send over to the next controller by setting the fields over in the AddTimeViewController
             
         }
