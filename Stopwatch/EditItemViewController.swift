@@ -17,6 +17,7 @@ class EditItemViewController: UIViewController {
     var descReceived = ""
     var dateReceived = Date()
     var index = -1
+    var finishedReceived = false
     
     @IBOutlet weak var name: UITextField!
     
@@ -38,6 +39,7 @@ class EditItemViewController: UIViewController {
         self.lon.text = String(lonReceived)
         self.desc.text = descReceived
         self.date.date = dateReceived
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -64,6 +66,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             targetController.lon = Double(lon.text!)!
             targetController.desc = desc.text!
             targetController.date = date.date
+            targetController.finished = finishedReceived
             targetController.newItem = false
             targetController.currentIndex = index
             // ADD CODE: Get the data ready to send over to the next controller by setting the fields over in the AddTimeViewController

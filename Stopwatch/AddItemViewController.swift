@@ -53,6 +53,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             targetController.lon = Double(lon.text!)!
             targetController.desc = desc.text!
             targetController.date = date.date
+            targetController.finished = false
             targetController.newItem = true
             // ADD CODE: Get the data ready to send over to the next controller by setting the fields over in the AddTimeViewController
             

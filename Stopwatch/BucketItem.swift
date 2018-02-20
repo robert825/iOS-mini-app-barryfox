@@ -8,6 +8,7 @@ class BucketItem {
     var longitude: Double
     var description: String = ""
     var dueDate: Date
+    var finished: Bool
 
     
     init(name: String, latitude: Double, longitude: Double, description: String, dueDate: Date) {
@@ -16,6 +17,7 @@ class BucketItem {
         self.longitude = longitude
         self.description = description
         self.dueDate = dueDate
+        self.finished = false
     }
     
 }
