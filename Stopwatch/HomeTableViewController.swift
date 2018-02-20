@@ -37,8 +37,22 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: { (s1, s2) -> Bool in
+            print("reloaded")
+            if s1.finished && !s2.finished {
+                return false
+            }
+            if !s1.finished && s2.finished {
+                return true
+            }
+            if s1.finished == s2.finished {
+                return s1.dueDate < s2.dueDate
+            }
+            return false
+            
+        })
         
-        if(name != "" && lat != 9999.9 && lon != 9999.9 && desc != "" ) {
+        if(name != "" || lat != 9999.9 || lon != 9999.9 || desc != "" ) {
     
             let bucket1 = BucketItem(name: name, latitude: lat,  longitude: lon, description: desc, dueDate : date)
             if(newItem){
@@ -51,9 +65,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         } else {
             loadSampleBucketList()
         }
-        HomeTableViewController.buckets = HomeTableViewController.buckets.sorted(by: {
-            $0.dueDate.compare($1.dueDate) == .orderedAscending
-        })
+        
         bucketTableView.dataSource = self
         bucketTableView.delegate = self
         
@@ -110,7 +122,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     {
         
     }
-    
+   
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
@@ -157,7 +169,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
 //        var b = HomeTableViewController.buckets[self.currentIndex]
         let completed = tableView.cellForRow(at: editActionsForRowAt) as! BucketListTableViewCell
 
-        let done = UITableViewRowAction(style: .normal, title: completed.done) { action, index in
+        let done = UITableViewRowAction(style: .normal, title: "Done") { action, index in
             print(HomeTableViewController.buckets[self.currentIndex].finished)
             print("done button tapped")
             
@@ -172,6 +184,9 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
                 HomeTableViewController.buckets[self.currentIndex].finished = true
                 completed.backgroundColor = .gray
             }
+            
+            tableView.reloadData()
+            
             
             
         }
