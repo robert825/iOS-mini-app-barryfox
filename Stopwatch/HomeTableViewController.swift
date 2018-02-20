@@ -14,6 +14,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     var lon  = 9999.9
     var desc = ""
     var date  = Date()
+    var currentIndex = -1;
     
     @IBOutlet weak var bucketTableView: UITableView!
     var buckets = [BucketItem]()
@@ -124,6 +125,18 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
             print("edit button tapped")
+            self.currentIndex = editActionsForRowAt[1]
+            let cell = tableView.cellForRow(at: editActionsForRowAt)
+            self.performSegue(withIdentifier: "editItem", sender: cell)
+//            let vc = EditItemViewController()
+//
+//            let item = self.buckets[self.currentIndex]
+//            vc.nameReceived = item.name
+//            vc.latReceived = item.latitude
+//            vc.lonReceived = item.longitude
+//            vc.descReceived = item.description
+//            vc.dateReceived = item.dueDate
+//            self.present(vc, animated: true, completion: nil)
         }
         edit.backgroundColor = .orange
         
@@ -136,8 +149,22 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         return [done, edit]
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        // NOTE: You'll need to click on the seque you create and give it the name "AddTime" for this to work!
+        if (segue.identifier == "editItem") {
+            let destinationVC = segue.destination as! UINavigationController
+            let targetController = destinationVC.topViewController as! EditItemViewController
+            let item = buckets[currentIndex]
+            targetController.nameReceived = item.name
+            targetController.latReceived = item.latitude
+            targetController.lonReceived = item.longitude
+            targetController.descReceived = item.description
+            targetController.dateReceived = item.dueDate
+        }
     
-    
+    }
 
     
     

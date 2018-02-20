@@ -223,7 +223,7 @@
         <!--Edit Item Controller-->
         <scene sceneID="5sV-vs-bpQ">
             <objects>
-                <viewController id="Ewt-Kb-QdR" userLabel="Edit Item Controller" sceneMemberID="viewController">
+                <viewController id="Ewt-Kb-QdR" userLabel="Edit Item Controller" customClass="EditItemController" customModule="Mini_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yuS-BS-afI"/>
                         <viewControllerLayoutGuide type="bottom" id="jDn-WD-LIy"/>
