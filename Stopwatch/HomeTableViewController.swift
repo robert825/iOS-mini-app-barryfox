@@ -47,7 +47,7 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,6 +119,22 @@ class HomeTableViewController: UIViewController, UITableViewDataSource, UITableV
         cell.dateLabel.text = convertedDate
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            print("edit button tapped")
+        }
+        edit.backgroundColor = .orange
+        
+        let done = UITableViewRowAction(style: .normal, title: "Done") { action, index in
+            print("done button tapped")
+        }
+        done.backgroundColor = .green
+        
+        
+        
+        return [done, edit]
     }
     
     
